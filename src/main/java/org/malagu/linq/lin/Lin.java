@@ -351,4 +351,11 @@ public interface Lin<T extends Lin<T, Q>, Q extends CommonAbstractCriteria> {
 
 	T notIn(String property, Set<?> values);
 
+	default T in(String property, Collection<?> values) {
+    return in(property, values.toArray());
+	}
+
+	default T notIn(String property, Collection<?> values) {
+	   return notIn(property, values.toArray());
+	}
 }
